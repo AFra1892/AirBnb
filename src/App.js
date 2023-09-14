@@ -2,24 +2,29 @@ import Navbar from './Components/Navbar';
 import Card from './Components/Card';
 import Contact from './Components/Contact';
 import Joke from './Components/Joke';
+import Data from './Data';
+
 
 function App() {
-  const setup1 = " shit I got my daughter a fridge for her birthday."
+
+
+
+const newArray = Data.map(item=>{
+  return <Card
+    img={item.coverImg}
+    rating={item.stats.rating}
+    reviewCount={item.stats.reviewCount}
+    country={item.location}
+    title={item.title}
+    price={item.price}
+  />
+})
   return(
     <div className='container'>
       <Navbar/>
-
-      <Card 
-        img="images/katie-zaferes.png"
-        rating="5.0"
-        reviewCount={6}
-        contry="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
-
-
-
+      <section className="cards-list">
+                {newArray}
+            </section>
     </div>
   )
 }
