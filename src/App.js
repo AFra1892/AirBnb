@@ -1,7 +1,6 @@
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
-import Contact from './Components/Contact';
-import Joke from './Components/Joke';
+import Hero from './Components/Hero'
 import Data from './Data';
 
 
@@ -11,17 +10,14 @@ function App() {
 
 const newArray = Data.map(item=>{
   return <Card
-    img={item.coverImg}
-    rating={item.stats.rating}
-    reviewCount={item.stats.reviewCount}
-    country={item.location}
-    title={item.title}
-    price={item.price}
+    key={item.id}
+    item={item}
   />
 })
   return(
     <div className='container'>
       <Navbar/>
+      <Hero/>
       <section className="cards-list">
                 {newArray}
             </section>
